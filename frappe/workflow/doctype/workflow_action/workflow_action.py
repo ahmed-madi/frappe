@@ -152,7 +152,7 @@ def get_users_next_action_data(transitions, doc):
     user_data_map = {}
     for transition in transitions:
         # if self_approval is checked it shouldn't make workflow action and email! 
-        if transition.allow_self_approval:
+        if transition.get('allow_self_approval'):
             continue
 
         else:
@@ -176,9 +176,10 @@ def get_users_next_action_data(transitions, doc):
                         }
 
                     user_data_map[user].get('possible_actions').append({
-                        'action_name': transition.action,
-                        'action_link': get_workflow_action_url(transition.action, doc, user)
+                        'action_name': transition.get('action'),
+                        'action_link': get_workflow_action_url(transition.get('action'), doc, user)
                     })
+        print(user_data_map)        
     return user_data_map
 
 

@@ -33,7 +33,7 @@ def print_has_permission_check_logs(func):
 		return result
 	return inner
 
-@print_has_permission_check_logs
+#@print_has_permission_check_logs
 def has_permission(doctype, ptype="read", doc=None, verbose=False, user=None):
 	"""Returns True if user has permission `ptype` for given `doctype`.
 	If `doc` is passed, it also checks user, share and owner permissions.
